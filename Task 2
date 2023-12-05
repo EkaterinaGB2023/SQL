@@ -1,0 +1,20 @@
+drop procedure if exists even_numbers;
+delimiter $$
+create procedure even_numbers
+(
+ last_number int
+)
+begin 
+declare n int default 2;
+declare result varchar(45) default "";
+
+	set result = "";
+    WHILE n <= last_number DO
+        SET result = CONCAT(result, CAST(n AS char), ' '); 
+        SET n = n + 2;
+  END WHILE;
+  
+    select result;
+    end $$
+    
+   call even_numbers(19);
